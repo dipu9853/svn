@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <link href="../DashboardCss/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../DashboardCss/sb-admin-2.css" rel="stylesheet"/>
+    <link href="../DashboardCss/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../DashboardCss/DashboardContent.css" rel="stylesheet"/>
+    <script src="../DashboardJs/Validation.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/> 
+    <script type="text/javascript">
+        function validateApply(form)
+         {
+             //Validate institution name
+            var insName = document.getElementById("Iname");
+            if (!isValidName(insName)) {
+                alert("Please recheck your instituion's name.");
+				insName.style.backgroundColor = "rgb(255,204,204)";
+                insName.focus();
+				return false;
+            }
+			 else{
+				 insName.style.backgroundColor = "";
+			 }
+			 
+             //Validate parent's name
+			 var parName= document.getElementById("Parname");
+             if (!isValidName(parName)) {
+                alert("Please recheck your parent's name.");
+				parName.style.backgroundColor = "rgb(255,204,204)";
+                parName.focus();
+                return false;
+            }
+			  else{
+				 parName.style.backgroundColor = "";
+			  }
+             
+			 //Validate date of birth
+			 var date= document.getElementById("DOB");
+             if (!isValidDate(date)) {
+                alert("Please recheck your date of birth.");
+				date.style.backgroundColor = "rgb(255,204,204)";
+                date.focus();
+                return false;
+            }
+			  else{
+				 date.style.backgroundColor = "";
+			  }
+			 
+             //Validate gender
+			 var check1 = document.getElementById("Male");
+             var check2 = document.getElementById("Female");
+			 if (check1.checked == false && check2.checked == false){
+				 alert("Please select your gender");
+				 return false;
+			 }
+			 
+			 //Validates the grade dropdown
+			 var grade = document.getElementById("Grade");
+			 if (grade.selectedIndex == 0){
+				 alert("Please select your grade.");
+				 grade.style.backgroundColor = "rgb(255,204,204)";
+				 grade.focus();
+				 return false;
+			  }
+			  else{
+				 grade.style.backgroundColor = "";
+			  }
+             
+             //Validate subjects
+                var btnChk = document.getElementById("sub_btn");
+                    if (!isValidSubject()){
+                        alert("Please select your subject");
+                        btnChk.style.backgroundColor = "rgb(255,204,204)";
+                        btnChk.focus();
+                        return false;
+                    }
+             else{
+                 btnChk.style.backgroundColor = "";
+             }
+             
+            //Validate address 
+            var address = document.getElementById("Address");
+            if (!isValidAddress(address)) {
+                alert("Please recheck your address.");
+				address.style.backgroundColor = "rgb(255,204,204)";
+                address.focus();
+				return false;
+             }
+			 else{
+				 address.style.backgroundColor = "";
+			 }
+             
+			 //Validate City
+			 var city = document.getElementById("City");
+			 if (city.selectedIndex == 0){
+				 alert("Please select a city.");
+				 city.style.backgroundColor =  "rgb(255,204,204)";
+				 city.focus();
+				 return false;
+			  }
+			  else{
+				 city.style.backgroundColor = "";
+			  }
+			 
+             //Validate dist
+			 var dist = document.getElementById("District");
+			 if (dist.selectedIndex == 0){
+				 alert("Please select a district.");
+				 dist.style.backgroundColor = "rgb(255,204,204)";
+				 dist.focus();
+				 return false;
+			  }
+			  else{
+				 dist.style.backgroundColor = "";
+			  }
+			 
+             //Validate state
+			 var state = document.getElementById("State");
+			 if (state.selectedIndex == 0){
+				 alert("Please select a state.");
+				 state.style.backgroundColor = "rgb(255,204,204)";
+				 state.focus();
+				 return false;
+			  }
+			  else{
+				 state.style.backgroundColor = "";
+			  }
+             
+             //Validate country
+			 var country = document.getElementById("Country");
+			 if (country.selectedIndex == 0){
+				 alert("Please select a country.");
+				 country.style.backgroundColor = "rgb(255,204,204)";
+				 country.focus();
+				 return false;
+			  }
+			  else{
+				 country.style.backgroundColor = "";
+			  }
+			 
+             //Validate pincode
+			 var pinCode = document.getElementById("Pincode");
+             if (!isValidPinCode(pinCode)) {
+                alert("Please recheck your pincode.");
+				pinCode.style.backgroundColor = "rgb(255,204,204)";
+                pinCode.focus();
+                return false;
+              }
+			  else{
+				 pinCode.style.backgroundColor = "";
+			  }       
+  }
+    </script>
+    
+	</head>
+	<body>
+	
+		<div>
+			<iframe frameborder="0" scrolling="no" src="/GowbellHope/user/MasterHeader.jsp" style="min-width:100%;height:150px;"></iframe>
+		</div>
+       <div style="margin-top:20px;"></div>
+			<div class="navbar-default sidebar " role="navigation"style="margin-top:0.2px;border-top:1px solid rgb(231,231,231);">
+		<div class="sidebar-nav navbar-collapse">
+					<ul class="nav" id="side-menu">
+						<li>
+                             <a href="../StudentDashboard/StudentAccount.jsp" style="color:gray;"><i class="fa fa-dashboard fa-fw"style="color:rgb(66,133,244);"></i> Student Dashboard</a>
+                        </li>
+						<li>
+							<a href="#"><i class="fa fa-lock" aria-hidden="true"style="color:rgb(251,188,5)"></i> Login & Security<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+                                    <a href="UpdatePersonalInfo.html"><i class="glyphicon glyphicon-arrow-right admin-sb-link"style="font-size:10px" class="fa"></i> Update Personal Information</a>
+                                </li>
+                                <li>
+                                    <a href="ChangePassword.html"><i class="glyphicon glyphicon-arrow-right admin-sb-link"style="font-size:10px" class="fa"></i> Change Password</a>
+                                </li>
+                                <li>
+                                    <a href="Deactivate.html"><i class="glyphicon glyphicon-arrow-right admin-sb-link"style="font-size:10px" class="fa"></i> Deactivate Account</a>
+                                </li>
+							</ul>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-registered" aria-hidden="true"style="color:rgb(52,168,83)"></i> Gowbell-Hope Competition<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+                                    <a href="Apply.html"><i class="glyphicon glyphicon-arrow-right admin-sb-link"style="font-size:10px" class="fa"></i> Apply Here</a>
+                                </li>
+							</ul>
+						</li>
+								<li>
+                                    <a href="PerformanceReport.html"> <i class="fa fa-line-chart"style="color:rgb(255,187,51)"></i> Performance Report</a>
+                                </li>
+                          <li>
+                             <a href="Achievements.html"><i style="font-size:12px;color:rgb(255,51,185);" class="fa">&#xf00b;</i> Achievements</a>
+						  </li>
+					       <li>
+                             <a href="Results.html"><i class="glyphicon glyphicon-search"style="font-size:12px;color:rgb(234,67,53)"></i> Exam Results</a>
+						  </li>
+                            <li>
+							<a href="#"><i class="fa fa-download" aria-hidden="true"style="font-size:12px;color:rgb(126,204,0)"></i> Downloads<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level">
+								<li>
+                                    <a href="Questions.html"><i class="glyphicon glyphicon-arrow-right admin-sb-link"style="font-size:10px" class="fa"></i> Questions</a>
+                                </li>
+                                <li>
+                                    <a href="HallTicket.html"><i class="glyphicon glyphicon-arrow-right admin-sb-link"style="font-size:10px" class="fa"></i> Hall Ticket</a>
+                                </li>
+							</ul>
+                        </li> 
+                            <li>
+                             <a href="Orders.html"><i class="fa fa-first-order" aria-hidden="true"style="font-size:12px;color:rgb(204,78,0)"></i> Your Orders</a>
+                        </li>
+                         <li>
+                             <a href="Feedback.jsp"><i class="fa fa-commenting" aria-hidden="true"style="color:rgb(92,46,145)"></i> Feedback</a>
+                        </li>
+					</ul>
+				</div>
+			</div>
+        <div id="page-wrapper"style="border-top:1px solid rgb(231,231,231);">
+			<div class="row">
+				<div class="col-lg-12"style="width:70%;margin-left:15%;">
+					<h3 class="page-header">Apply For Gowbell-Hope Competition</h3>
+				</div> 
+			</div> 
+            <div class="row">
+                <div class="col-lg-12"style="width:70%;margin-left:15%;">
+                    <div class="panel panel-default"style="box-shadow: 0px 5px 10px 0px silver;background-color:rgb(248,248,248);">
+                        <div class="panel-heading"style="height:38px;background-color:rgb(33,115,185);color:white;">
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <form>
+    <div class="col-md-12 col-sm-12"style="padding-left:8%;padding-right:8%;">
+        <label style="margin-left:73%;"><span style="color:red;">*</span><i>Fields are mandatory</i></label><br/>
+	<div class="form-group col-md-6 col-sm-6">
+            <label class="dashlbl">Institution Name:<span style="color:red;">*</span></label>
+            <input type="TextBox" ID="Iname" Name="Institution Name" class="form-control input-sm" >
+    </div>
+    <div class="form-group col-md-6 col-sm-6">
+            <label class="dashlbl">Parent's Name:<span style="color:red;">*</span></label>
+            <input type="TextBox" ID="Parname" Name="Parent's Name" class="form-control input-sm">
+    </div>
+	<div class="form-group col-md-6 col-sm-6">
+            <label style="font-size:13px;">Student's DOB:<span style="color:red;">*</span></label>
+      		<input type="Date" ID="DOB"  class="form-control" placeholder="Date of Birth">   	 
+   </div>
+    <div class = "form-group col-md-6 col-sm-6" ID="Gend"> 
+        <label class="dashlbl">Gender:<span style="color:red;">*</span></label><br/>
+        <label class="radio-inline">
+            <input type="radio" ID="Male" Name="optionsRadiosInline" value="option1">Male
+        </label>
+        <label class="radio-inline">
+        <input type="radio" ID="Female"   Name="optionsRadiosInline"  value="option2">Female
+        </label>
+        </div>	   
+      <div class="col-md-6 col-xs-12"style="float:right;margin-top:12px;">
+           <label class="dashlbl">Subjects:<span style="color:red;">*</span></label><br/>
+      <button type="button" ID="sub_btn" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Select Subjects <span class="caret"></span></button>
+        <ul class="dropdown-menu"style="margin-left:15px;">
+          <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox" Name = "subject"/> Mathematics</a></li>
+          <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input type="checkbox" Name = "subject"/> Science</a></li>
+          <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input type="checkbox" Name = "subject"/> English</a></li>
+          <li><a href="#" class="small" data-value="option4" tabIndex="-1"><input type="checkbox" Name = "subject"/> ComputerScience</a></li>
+        </ul>
+        </div>
+       <div class = "form-group col-md-6 col-sm-6" style="float:left;">
+        <label class="dashlbl">Grade:<span style="color:red;">*</span></label>
+	    <select class="form-control input-sm" ID="Grade">
+		<option>-- Select Grade --</option>
+        <option value="">I</option>
+        <option value="">II</option>
+        <option value="">III</option>
+        <option value="">IV</option>
+        <option value="">V</option>
+        <option value="">VI</option>
+        <option value="">VII</option>
+        <option value="">VIII</option>
+        <option value="">IX</option>
+        <option value="">X</option>
+	   </select>
+        </div>  
+        <div class = "form-group col-md-6 col-sm-6" style="float:right;margin-top:16px;">
+        <label class="dashlbl">City:<span style="color:red;">*</span></label>
+	    <select class="form-control input-sm" ID="City">
+		<option>-- Select City --</option>
+        <option value="Bhubaneswar">Bhubaneswar</option>
+        <option value="Cuttack">Cuttack</option>
+        <option value="Saro">Saro</option>
+        <option value="Bhadrak">Bhadrak</option>
+	   </select>
+      </div>
+      <div class="form-group col-md-6 col-sm-6"style="float:left;">
+            <label class="dashlbl">Address:<span style="color:red;">*</span></label>
+            <input type="TextBox" ID="Address" Name="AName" placeholder="E.g:Plot No:F-45,Sakhsi bihar" class="form-control input-sm">
+      </div>
+           <div class = "form-group col-md-6 col-sm-6" style="float:left;">
+        <label class="dashlbl">District:<span style="color:red;">*</span></label>
+	    <select class="form-control input-sm" ID="District">
+		<option>-- Select District --</option>
+        <option value="Khordha">Khordha</option>
+        <option value="Cuttack">Cuttack</option>
+        <option value="Baleswar">Baleswar</option>
+        <option value="Puri">Puri</option>
+        <option value="Dhenkanal">Dhenkanal</option>
+	   </select>
+     </div>
+    <div class = "form-group col-md-6 col-sm-6" style="float:right;">
+        <label class="dashlbl">State:<span style="color:red;">*</span></label>
+	    <select class="form-control input-sm" ID="State">
+		<option>-- Select State --</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Sikim">Sikim</option>
+	   </select>
+	   </div>
+        <div class = "form-group col-md-6 col-sm-6" style="float:left;">
+        <label class="dashlbl">Country:<span style="color:red;">*</span></label>
+	    <select class="form-control input-sm" ID="Country">
+		<option>-- Select Country --</option>
+        <option value="India">India</option>
+        <option value="Nepal">Nepal</option>
+        <option value="Bhutan">Bhutan</option>
+        <option value="China">China</option>
+	   </select>
+       </div>
+       <div class="form-group col-md-6 col-sm-6"style="float:right;">
+            <label class="dashlbl">Pincode:<span style="color:red;">*</span></label>
+            <input type="TextBox" ID="Pincode" Name="Institution Name" class="form-control input-sm" >
+      </div>
+
+      <div class="form-group col-md-6 col-sm-6"style="width:100%;">
+        <hr class="style14">
+       </div>
+      <div class="form-group col-md-3 col-sm-3 pull-right" style="width:100%;">
+          <div style="margin-left:38%;">
+            <input type="button" class="btn btn-primary" value="Confirm" onClick="validateApply()"/>
+            <input type="button" class="btn btn-primary" value="Preview"/>
+          </div>
+       </div>
+       </div>
+</form>      
+        </div>  
+           </div>  
+               </div>
+                  </div>
+                     </div>
+		</div>
+		<div style="background-color:rgb(51,79,147);">
+			<iframe  frameborder="0" scrolling="no" src="/GowbellHope/user/Footer.html" style="min-width:100%;height:70px;"></iframe>
+		</div>
+		<script src="../DashboardJs/jquery.min.js"></script>
+		<script src="../DashboardJs/bootstrap.min.js"></script>
+        <script src="../DashboardJs/metisMenu.min.js"></script>
+        <script src="../DashboardJs/sb-admin-2.js"></script>   
+	</body>
+</html>
+
